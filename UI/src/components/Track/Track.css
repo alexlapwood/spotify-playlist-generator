@@ -1,0 +1,59 @@
+.Track {
+  display: grid;
+  font-size: 1rem;
+  grid-gap: 1rem;
+  grid-template-columns: 1.375rem minmax(0, 1fr) auto;
+  line-height: 1.375rem;
+  padding: 1rem;
+  transition: 0.1s ease;
+}
+
+.Track-details {
+  display: inline-grid;
+  grid-auto-flow: column;
+}
+
+.Track-details > * {
+  margin-right: 0.75rem;
+}
+
+.Track-details a {
+  color: var(--white);
+  opacity: 0.6;
+  transition: 0.1s ease;
+}
+
+.Track-details a:hover {
+  opacity: 1;
+}
+
+.Track:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.Tag {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 0.1875rem;
+  color: var(--black);
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  padding: 0.125rem 0.25rem;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.Track-artists {
+  margin-right: 0;
+}
+
+.Track-artists > * {
+  margin-right: 0.75rem;
+}
+
+.Track-duration {
+  font-feature-settings: "tnum";
+  font-size: 0.9rem;
+  letter-spacing: 0;
+  opacity: 0.6;
+  padding-left: 1.5rem;
+}

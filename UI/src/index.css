@@ -1,0 +1,131 @@
+@font-face {
+  font-family: spotify-circular;
+  src: url(https://open.scdn.co/fonts/CircularSpUIv3T-Book.woff2)
+      format("woff2"),
+    url(https://open.scdn.co/fonts/CircularSpUIv3T-Book.woff) format("woff"),
+    url(https://open.scdn.co/fonts/CircularSpUIv3T-Book.ttf) format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: spotify-circular;
+  src: url(https://open.scdn.co/fonts/CircularSpUIv3T-Bold.woff2)
+      format("woff2"),
+    url(https://open.scdn.co/fonts/CircularSpUIv3T-Bold.woff) format("woff"),
+    url(https://open.scdn.co/fonts/CircularSpUIv3T-Bold.ttf) format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --accent: var(--white-darken);
+  --accent-darken: var(--white-darken-2);
+  --accent-darken-2: var(--white-darken-3);
+  --accent-lighten: var(--white);
+  --accent-lighten-2: var(--white);
+  --black: #000;
+  --black-lighten: #181818;
+  --black-lighten-2: #282828;
+  --green-darken: #1db95480;
+  --green: #1db954;
+  --green-lighten: #1ed760;
+  --white: #fff;
+  --white-darken: #b3b3b3;
+  --white-darken-2: #888;
+  --white-darken-3: #5a5a5a;
+}
+
+* {
+  box-sizing: border-box;
+  -webkit-text-size-adjust: 100%;
+}
+
+html {
+  background: var(--black-lighten);
+}
+
+body {
+  color: var(--white);
+  font-family: "spotify-circular", "Helvetica Neue", sans-serif;
+  font-size: 1rem;
+  line-height: 1.25rem;
+  margin: 0;
+}
+::-webkit-scrollbar {
+  width: 1rem;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: hsla(0, 0%, 100%, 0.3);
+  border: 4px solid transparent;
+  border-radius: 1rem;
+  background-clip: padding-box;
+  min-height: 30px;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+h1,
+h2 {
+  font-weight: bold;
+  letter-spacing: -0.005em;
+}
+
+h1 {
+  font-size: 1.25rem;
+  margin: 0;
+  pointer-events: none;
+}
+
+h2 {
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+}
+
+a,
+a:focus,
+a:hover {
+  border-bottom: 1px solid var(--white);
+  text-decoration: none;
+}
+
+a:focus {
+  background: rgba(255, 255, 255, 0.1);
+  opacity: calc(1);
+  outline: none;
+}
+
+a {
+  color: var(--white);
+  border-bottom: 1px solid transparent;
+}
+
+.utility-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.utility-page-width {
+  margin: 0 auto;
+  max-width: 800px;
+  width: 100%;
+}
+
+@media screen and (max-width: 400px) {
+  html {
+    font-size: 4vmin;
+  }
+}
+
+@media screen and (max-height: 400px) {
+  html {
+    font-size: 4vmin;
+  }
+}

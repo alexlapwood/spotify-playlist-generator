@@ -1,0 +1,26 @@
+.Playlist {
+  height: 100%;
+  overflow-y: scroll;
+}
+
+.Playlist-header {
+  padding: 3.75rem 1.5rem;
+  text-align: center;
+}
+
+.Playlist-owner {
+  font-size: 0.9rem;
+  opacity: calc(0.6 * 0.6);
+  transition: 0.1s ease;
+}
+
+.Playlist-owner:hover {
+  opacity: calc(0.6);
+}
+
+.Playlist-songCount {
+  font-size: 0.7rem;
+  letter-spacing: 0.16em;
+  opacity: 0.6;
+  text-transform: uppercase;
+}

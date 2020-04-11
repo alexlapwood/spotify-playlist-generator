@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "lib": ["es2019.Array"],
+    "module": "commonjs",
+    "noImplicitReturns": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "jsx": "react",
+    "outDir": "lib",
+    "strict": true,
+    "target": "es5"
+  },
+  "compileOnSave": true,
+  "include": ["src"]
+}

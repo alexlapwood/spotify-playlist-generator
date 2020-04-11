@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<PortalFocusHelper /> renders without crashing 1`] = `
+<Fragment>
+  <div
+    onFocus={[Function]}
+    tabIndex={0}
+  />
+  <div
+    onFocus={[Function]}
+    tabIndex={0}
+  />
+  <div />
+  <div
+    onFocus={[Function]}
+    tabIndex={0}
+  />
+</Fragment>
+`;

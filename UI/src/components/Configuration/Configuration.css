@@ -1,0 +1,9 @@
+.Configuration {
+  overflow: hidden;
+  margin: 1.5rem;
+}
+
+.Configuration > h3:not(:first-child) {
+  margin-top: 3.75rem;
+  padding-top: 3.75rem;
+}

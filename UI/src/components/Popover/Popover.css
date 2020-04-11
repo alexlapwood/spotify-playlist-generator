@@ -1,0 +1,91 @@
+.Popover {
+  background-color: var(--accent-lighten);
+  border-radius: 3px;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2), 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+  color: var(--accent-darken-2);
+  max-width: 300px;
+  position: relative;
+  padding: 1.5rem;
+  z-index: 500;
+}
+
+.Popover--fullwidth {
+  border-radius: 0;
+}
+
+.Popover-arrow--bottom,
+.Popover-arrow--top {
+  height: 8px;
+  width: calc(8px * 2);
+}
+
+.Popover-arrow--left,
+.Popover-arrow--right {
+  height: calc(8px * 2);
+  width: 8px;
+}
+
+.Popover-arrow--bottom:before,
+.Popover-arrow--bottom:after,
+.Popover-arrow--left:before,
+.Popover-arrow--left:after,
+.Popover-arrow--right:before,
+.Popover-arrow--right:after,
+.Popover-arrow--top:before,
+.Popover-arrow--top:after {
+  content: "";
+  position: absolute;
+  z-index: 500;
+}
+
+.Popover-arrow--bottom:before {
+  border-bottom: 8px solid rgba(0, 0, 0, 0.2);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+}
+
+.Popover-arrow--bottom:after {
+  border-bottom: 8px solid var(--accent-lighten);
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  transform: translateY(2px);
+}
+
+.Popover-arrow--left:before {
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid rgba(0, 0, 0, 0.2);
+  border-top: 8px solid transparent;
+}
+
+.Popover-arrow--left:after {
+  border-bottom: 8px solid transparent;
+  border-left: 8px solid var(--accent-lighten);
+  border-top: 8px solid transparent;
+  transform: translateX(-2px);
+}
+
+.Popover-arrow--right:before {
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid rgba(0, 0, 0, 0.2);
+  border-top: 8px solid transparent;
+}
+
+.Popover-arrow--right:after {
+  border-bottom: 8px solid transparent;
+  border-right: 8px solid var(--accent-lighten);
+  border-top: 8px solid transparent;
+  transform: translateX(2px);
+}
+
+.Popover-arrow--top:before {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid rgba(0, 0, 0, 0.2);
+}
+
+.Popover-arrow--top:after {
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 8px solid var(--accent-lighten);
+  transform: translateY(-2px);
+}

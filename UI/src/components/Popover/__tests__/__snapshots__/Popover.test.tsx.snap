@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Popover /> renders without crashing 1`] = `
+<Popover
+  id="test-popover"
+  triggerRef={
+    Object {
+      "current": null,
+    }
+  }
+>
+  <Positioning
+    pageBuffer={8}
+    triggerBuffer={9}
+    triggerRef={
+      Object {
+        "_triggerRef": Object {
+          "current": null,
+        },
+        "current": null,
+      }
+    }
+  >
+    <Portal>
+      <Portal
+        containerInfo={
+          <div>
+            <div
+              style="position: absolute;"
+            >
+              <div
+                class="Popover"
+                id="test-popover"
+                role="dialog"
+              >
+                <div
+                  tabindex="0"
+                />
+                <div
+                  tabindex="0"
+                />
+                <div>
+                  <div
+                    class="Popover-body"
+                  />
+                </div>
+                <div
+                  tabindex="0"
+                />
+              </div>
+            </div>
+          </div>
+        }
+      >
+        <div
+          style={
+            Object {
+              "position": "absolute",
+            }
+          }
+        >
+          <div
+            className="Popover"
+            id="test-popover"
+            role="dialog"
+          >
+            <PortalFocusHelper
+              focusPortalRef={
+                Object {
+                  "_triggerRef": Object {
+                    "current": null,
+                  },
+                  "current": null,
+                }
+              }
+            >
+              <div
+                onFocus={[Function]}
+                tabIndex={0}
+              />
+              <div
+                onFocus={[Function]}
+                tabIndex={0}
+              />
+              <div>
+                <div
+                  className="Popover-body"
+                />
+              </div>
+              <div
+                onFocus={[Function]}
+                tabIndex={0}
+              />
+            </PortalFocusHelper>
+          </div>
+          <Positioning
+            triggerRef={
+              Object {
+                "_triggerRef": Object {
+                  "current": null,
+                },
+                "current": null,
+              }
+            }
+          >
+            <Portal>
+              <Portal
+                containerInfo={
+                  <div>
+                    <div
+                      style="position: absolute;"
+                    >
+                      <div
+                        class="Popover-arrow--undefined"
+                      />
+                    </div>
+                  </div>
+                }
+              >
+                <div
+                  style={
+                    Object {
+                      "position": "absolute",
+                    }
+                  }
+                >
+                  <div
+                    className="Popover-arrow--undefined"
+                  />
+                </div>
+              </Portal>
+            </Portal>
+          </Positioning>
+        </div>
+      </Portal>
+    </Portal>
+  </Positioning>
+</Popover>
+`;

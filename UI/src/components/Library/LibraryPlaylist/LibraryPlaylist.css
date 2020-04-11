@@ -1,0 +1,41 @@
+.LibraryPlaylist {
+  align-items: center;
+  display: grid;
+  grid-template-columns: auto 1fr;
+  padding: 0.75rem 1.5rem;
+}
+
+.LibraryPlaylist:focus,
+.LibraryPlaylist:hover {
+  background: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  outline: none;
+}
+
+.LibraryPlaylist-thumbnail {
+  height: 4rem;
+  width: 4rem;
+  color: #888;
+}
+
+.LibraryPlaylist-thumbnail-missing {
+  background: #282828;
+  box-shadow: 0 0 0.75rem rgba(0, 0, 0, 0.3);
+  color: #b3b3b3;
+  padding: 35%;
+}
+
+.LibraryPlaylist-details {
+  padding: 0 1.5rem;
+}
+
+.LibraryPlaylist-name {
+  font-size: 0.875rem;
+  letter-spacing: 0.015em;
+  font-weight: bold;
+  color: var(--white);
+}
+
+.LibraryPlaylist-owner {
+  opacity: 0.6;
+}

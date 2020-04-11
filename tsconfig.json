@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "lib": ["es2019.Array"],
+    "esModuleInterop": true,
+    "jsx": "react",
+    "resolveJsonModule": true,
+    "strict": true
+  },
+  "exclude": ["UI"]
+}
