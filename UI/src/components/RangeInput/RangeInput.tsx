@@ -49,12 +49,18 @@ const RangeInput: React.FunctionComponent<Props> = ({
             ),
           } as React.CSSProperties
         }
-        onMouseDown={(event) => {
+        onPointerDown={(event) => {
           if (event.buttons === 1) {
+            event.preventDefault();
             handleOnClick(event);
           }
         }}
-        onMouseMove={(event) => {
+        onTouchMove={(event) => {
+          event.preventDefault();
+          // @ts-ignore
+          handleOnClick(event);
+        }}
+        onPointerMove={(event) => {
           if (event.buttons === 1) {
             handleOnClick(event);
           }

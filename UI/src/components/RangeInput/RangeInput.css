@@ -5,6 +5,7 @@
   margin-top: 1rem;
   cursor: pointer;
   position: relative;
+  touch-action: none;
   /* overflow: hidden; */
 }
 
