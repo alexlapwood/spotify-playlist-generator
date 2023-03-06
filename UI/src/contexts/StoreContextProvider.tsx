@@ -1,6 +1,7 @@
 import React from "react";
 
 import axios, { AxiosError } from "axios";
+// @ts-ignore
 import { cloneDeep } from "lodash";
 import Vibrant from "node-vibrant";
 

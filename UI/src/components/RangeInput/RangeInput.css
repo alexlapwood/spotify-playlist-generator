@@ -1,103 +1,42 @@
 .RangeInput {
-  padding: 0.75rem 0;
-  margin: 1.5rem 0 0;
-}
-
-:root {
-  --slider-size: 1rem;
-}
-
-.input-range__slider {
-  appearance: none;
-  border: 1px solid var(--accent);
-  border-radius: 100%;
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  margin-top: 1rem;
   cursor: pointer;
-  display: block;
-  height: var(--slider-size);
-  margin-top: calc(-1rem / 2 - var(--slider-size) / 2);
-  outline: none;
+  position: relative;
+  /* overflow: hidden; */
+}
+
+.RangeInput--label {
+  color: var(--white);
+  z-index: 0;
+}
+
+/* Track */
+.RangeInput--track {
+  background: var(--accent-darken-2);
+  border-radius: 16px;  
+  height: 1rem;
+  left: 0;
   position: absolute;
   top: 50%;
-  transition: box-shadow 0.3s ease-out;
-  width: var(--slider-size);
+  transform: translateY(-50%);
+  width: 100%;
 }
-
-.input-range__slider-container:first-of-type .input-range__slider {
-  margin-left: calc(1rem / 2 - var(--slider-size) / 2);
-}
-.input-range__slider-container:last-of-type .input-range__slider {
-  margin-left: calc(-1rem / 2 - var(--slider-size) / 2);
-}
-
-.input-range__slider:focus {
-  transform: scale(1.5);
-}
-
-.input-range--disabled .input-range__slider {
-  background: var(--white-darken-2);
-  border: 1px solid var(--white-darken-2);
-  box-shadow: none;
-  transform: none;
-}
-
-.input-range__label {
-  color: var(--white);
-  font-size: 0.8rem;
-  transform: translateZ(0);
-  white-space: nowrap;
-}
-
-.input-range__label--min,
-.input-range__label--max {
-  display: none;
-}
-
-.input-range__label--min {
-  left: 0;
-}
-
-.input-range__label--max {
-  right: 0;
-}
-
-.input-range__label--value {
-  position: absolute;
-  top: -2.5rem;
-}
-
-.input-range__slider-container:last-child .input-range__label-container {
-  left: -100%;
-  position: relative;
-}
-
-.input-range__track {
-  background: var(--accent-darken-2);
-  border-radius: 10rem;
-  cursor: pointer;
-  display: block;
-  height: 1rem;
-  position: relative;
-}
-.input-range--disabled .input-range__track {
+.RangeInput-disabled .RangeInput--track {
   background: var(--white-darken);
 }
 
-.input-range__track--background {
-  left: 0;
+.RangeInput--range {
+  background: var(--accent);
+  border-radius: 16px;  
+  height: 1rem;
+  left: var(--min-percent);
   position: absolute;
-  right: 0;
   top: 50%;
   transform: translateY(-50%);
+  width: calc(var(--max-percent) - var(--min-percent));
+  z-index: 1;
 }
 
-.input-range__track--active {
-  background: var(--accent);
-}
-
-.input-range {
-  height: 1rem;
-  position: relative;
-  width: 100%;
-}
-
-/*# sourceMappingURL=index.css.map */

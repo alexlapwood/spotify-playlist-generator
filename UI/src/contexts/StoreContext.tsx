@@ -1,4 +1,5 @@
 import React from "react";
+// @ts-ignore
 import { cloneDeep } from "lodash";
 
 export type Range = {

@@ -177,7 +177,8 @@ const Configuration: React.FunctionComponent<Props & PropsFromStore> = (
           isChecked={discoveryPreferences.includeRelatedArtists}
           onChange={() =>
             setDiscoveryPreferences({
-              includeRelatedArtists: !discoveryPreferences.includeRelatedArtists,
+              includeRelatedArtists:
+                !discoveryPreferences.includeRelatedArtists,
             })
           }
         >
@@ -190,7 +191,8 @@ const Configuration: React.FunctionComponent<Props & PropsFromStore> = (
           isChecked={discoveryPreferences.excludePlaylistArtists}
           onChange={() =>
             setDiscoveryPreferences({
-              excludePlaylistArtists: !discoveryPreferences.excludePlaylistArtists,
+              excludePlaylistArtists:
+                !discoveryPreferences.excludePlaylistArtists,
             })
           }
         >
@@ -319,21 +321,35 @@ const Configuration: React.FunctionComponent<Props & PropsFromStore> = (
       )}
       <RangeInput
         id="popularity"
-        formatLabel={(value) => `${value}%`}
+        format={(value) => `${value}%`}
         label="Artist popularity"
-        maxValue={100}
-        minValue={0}
+        max={100}
+        min={0}
         onChange={(value) => {
-          if (typeof value === "number") {
-            return;
+          const halfwayPoint =
+            artistFilters.popularity.min +
+            (artistFilters.popularity.max - artistFilters.popularity.min) / 2;
+          if (
+            value <= artistFilters.popularity.min ||
+            (value < artistFilters.popularity.max && value < halfwayPoint)
+          ) {
+            setArtistFilters({
+              popularity: {
+                min: Math.max(0, value),
+                max: artistFilters.popularity.max,
+              },
+            });
+          } else if (
+            value >= artistFilters.popularity.max ||
+            (value > artistFilters.popularity.min && value >= halfwayPoint)
+          ) {
+            setArtistFilters({
+              popularity: {
+                min: artistFilters.popularity.min,
+                max: Math.min(100, value),
+              },
+            });
           }
-
-          setArtistFilters({
-            popularity: {
-              min: Math.min(Math.max(0, value.min), 90),
-              max: Math.max(Math.min(100, value.max), 10),
-            },
-          });
         }}
         value={artistFilters.popularity}
       />
@@ -343,7 +359,8 @@ const Configuration: React.FunctionComponent<Props & PropsFromStore> = (
         isChecked={discoveryPreferences.excludePlaylistArtists}
         onChange={() =>
           setDiscoveryPreferences({
-            excludePlaylistArtists: !discoveryPreferences.excludePlaylistArtists,
+            excludePlaylistArtists:
+              !discoveryPreferences.excludePlaylistArtists,
           })
         }
       >
@@ -356,21 +373,39 @@ const Configuration: React.FunctionComponent<Props & PropsFromStore> = (
           <RangeInput
             id={key}
             key={key}
-            formatLabel={(value) => `${value}%`}
+            format={(value) => `${value}%`}
             label={label}
-            maxValue={100}
-            minValue={0}
-            onChange={(value) => {
-              if (typeof value === "number") {
-                return;
+            max={100}
+            min={0}
+            onChange={(newValue) => {
+              const halfwayPoint = value.min + (value.max - value.min) / 2;
+              if (
+                (newValue <= value.max && newValue <= halfwayPoint) ||
+                newValue <= value.min
+              ) {
+                setSongFilters({
+                  ranges: {
+                    ...songFilters.ranges,
+                    [key]: {
+                      min: Math.max(0, newValue),
+                      max: value.max,
+                    },
+                  },
+                });
+              } else if (
+                (newValue >= value.min && newValue >= halfwayPoint) ||
+                newValue >= value.max
+              ) {
+                setSongFilters({
+                  ranges: {
+                    ...songFilters.ranges,
+                    [key]: {
+                      min: value.min,
+                      max: Math.min(100, newValue),
+                    },
+                  },
+                });
               }
-
-              setSongFilters({
-                [key]: {
-                  min: Math.min(Math.max(0, value.min), 90),
-                  max: Math.max(Math.min(100, value.max), 10),
-                },
-              });
             }}
             value={value || { min: 0, max: 100 }}
           />
@@ -466,9 +501,9 @@ function select({ store, setStore }: StoreContext) {
       },
     });
 
-  const onChangeSearchArtistsInput: React.ChangeEventHandler<HTMLInputElement> = (
-    event
-  ) =>
+  const onChangeSearchArtistsInput: React.ChangeEventHandler<
+    HTMLInputElement
+  > = (event) =>
     setStore({
       controlledInputValues: {
         ...store.controlledInputValues,

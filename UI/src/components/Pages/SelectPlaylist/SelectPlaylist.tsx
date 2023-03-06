@@ -113,7 +113,10 @@ function select({ store, setStore }: StoreContext) {
       currentStep: step,
     });
 
-  const selectPlaylist = (playlistId: string) => {
+  const selectPlaylist = (playlistId?: string) => {
+    if (!playlistId) {
+      return;
+    }
     const selectedPlaylist = store.playlists[playlistId];
 
     let sortedArtistKeys: string[] = [];

@@ -48,6 +48,7 @@ button:hover {
 }
 
 button[data-type="icon"] {
+  align-items: center;
   background: none;
   color: var(--white);
   display: inline-flex;

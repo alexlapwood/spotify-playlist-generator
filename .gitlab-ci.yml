@@ -1,0 +1,33 @@
+image: node:16
+
+stages:
+  - Install dependencies
+  - Build
+  - Deploy
+
+npm install:
+  stage: Install dependencies
+  script:
+    - npm install
+  artifacts:
+    paths:
+      - node_modules/
+
+npm run build:
+  stage: Build
+  dependencies:
+    - npm install
+  script:
+    - npm run build
+  artifacts:
+    paths:
+      - dist/
+
+firebase deploy:
+  stage: Deploy
+  environment: production
+  dependencies:
+    - npm run build
+  script:
+    - npm i -g firebase-tools
+    - firebase deploy

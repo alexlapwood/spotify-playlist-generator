@@ -6,8 +6,8 @@ import { ReactComponent as PlaylistIcon } from "../../../svg/Playlist.svg";
 import "./LibraryPlaylist.css";
 
 interface Props {
-  playlist: SpotifyApi.PlaylistObjectSimplified;
-  selectPlaylist: (playlistId: string) => void;
+  playlist?: SpotifyApi.PlaylistObjectSimplified;
+  selectPlaylist?: (playlistId?: string) => void;
   style?: React.CSSProperties;
 }
 
@@ -15,12 +15,12 @@ export default class LibraryPlaylist extends React.PureComponent<Props> {
   public render() {
     const { playlist, selectPlaylist } = this.props;
 
-    const playlistThumbnail = playlist.images[0] && playlist.images[0].url;
+    const playlistThumbnail = playlist?.images[0] && playlist.images[0].url;
 
     return (
       <div
         className="LibraryPlaylist"
-        onClick={() => selectPlaylist(playlist.id)}
+        onClick={() => selectPlaylist?.(playlist?.id)}
         tabIndex={0}
       >
         {playlistThumbnail ? (
@@ -39,9 +39,9 @@ export default class LibraryPlaylist extends React.PureComponent<Props> {
           />
         )}
         <div className="LibraryPlaylist-details">
-          <div className="LibraryPlaylist-name">{playlist.name}</div>
+          <div className="LibraryPlaylist-name">{playlist?.name}</div>
           <div className="LibraryPlaylist-owner">
-            {playlist.owner.display_name}
+            {playlist?.owner.display_name}
           </div>
         </div>
       </div>

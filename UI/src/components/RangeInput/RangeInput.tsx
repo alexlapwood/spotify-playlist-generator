@@ -1,23 +1,67 @@
 import React from "react";
-import InputRange from "react-input-range";
 
 import "./RangeInput.css";
 
-interface Props extends React.ComponentProps<typeof InputRange> {
-  id?: string;
-  label?: React.ReactNode;
+interface Props {
+  id: string;
+  format: (value: string) => string;
+  label: React.ReactNode;
+  onChange?: (value: number) => void;
+  min: number;
+  max: number;
+  value: {
+    min: number;
+    max: number;
+  };
 }
 
 const RangeInput: React.FunctionComponent<Props> = ({
   id,
+  format,
   label,
-  ...props
+  onChange,
+  min,
+  max,
+  value,
 }) => {
+  const handleOnClick = (event: React.MouseEvent<HTMLDivElement>) => {
+    const { clientX } = event;
+    const { left, width } = event.currentTarget.getBoundingClientRect();
+    const percent = (clientX - left) / width;
+    const newValue = Math.round((max - min) * percent + min);
+    onChange && onChange(newValue);
+  };
+
   return (
     <React.Fragment>
       {label && <label htmlFor={id}>{label}</label>}
-      <div className="RangeInput" id={id}>
-        <InputRange draggableTrack {...props} />
+      <div
+        className="RangeInput"
+        style={
+          {
+            "--min": value.min,
+            "--max": value.max,
+            "--min-percent": format(
+              String(((value.min - min) / (max - min)) * 100)
+            ),
+            "--max-percent": format(
+              String(((value.max - min) / (max - min)) * 100)
+            ),
+          } as React.CSSProperties
+        }
+        onMouseDown={(event) => {
+          if (event.buttons === 1) {
+            handleOnClick(event);
+          }
+        }}
+        onMouseMove={(event) => {
+          if (event.buttons === 1) {
+            handleOnClick(event);
+          }
+        }}
+      >
+        <div className="RangeInput--track"></div>
+        <div className="RangeInput--range"></div>
       </div>
     </React.Fragment>
   );

@@ -36,6 +36,7 @@ api.get("/playlists", async (req, res) => {
       return res.send(library);
     } catch (error) {
       console.error(error);
+      // @ts-ignore
       return res.status(error.statusCode).send(error.statusMessage);
     }
   });
@@ -102,6 +103,7 @@ api.get("/playlist/:playlistId", async (req, res) => {
       return res.send({ ...playlist, genres });
     } catch (error) {
       console.log(error);
+      // @ts-ignore
       return res.status(error.statusCode).send(error.statusMessage);
     }
   });
@@ -267,9 +269,11 @@ api.post("/playlist", async (req, res) => {
 
         const failingAudioFeature = Object.entries(audioFeatures).find(
           ([audioFeatureKey, audioFeature]) => {
-            const audioFeatureFilter = (songFilters.ranges as typeof songFilters.ranges & {
-              [index: string]: Range;
-            })[audioFeatureKey];
+            const audioFeatureFilter = (
+              songFilters.ranges as typeof songFilters.ranges & {
+                [index: string]: Range;
+              }
+            )[audioFeatureKey];
 
             if (!audioFeatureFilter) {
               return false;
@@ -369,6 +373,7 @@ api.post("/playlist", async (req, res) => {
       return res.send(newPlaylist);
     } catch (error) {
       console.log(error);
+      // @ts-ignore
       return res.status(error.statusCode).send(error.statusMessage);
     }
   });
